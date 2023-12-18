@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js_Calculator</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: #d9afd9;
+        background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+        background-repeat: no-repeat;
+        margin-top: 20vh;
+      }
+      #main {
+        width: 400px;
+        height: 400px;
+        background-color: #002661;
+        border: 10px;
+        border-radius: 25px;
+      }
+      input {
+        width: 80px;
+        height: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        margin: 8px;
+        border: 10px;
+        border-radius: 25px;
+      }
+      #display {
+        width: 53vh;
+        height: 20vh;
+        font-size: 40px;
+        background-color: whitesmoke;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <form name="form">
+        <input type="text" name="screen" placeholder="0" id="display" />
+        <br />
+        <input type="button" value="1" onclick="form.screen.value+=1" />
+        <input type="button" value="2" onclick="form.screen.value+=2" />
+        <input type="button" value="3" onclick="form.screen.value+=3" />
+        <input type="button" value="+" onclick="add()" />
+        <br />
+        <input type="button" value="4" onclick="form.screen.value+=4" />
+        <input type="button" value="5" onclick="form.screen.value+=5" />
+        <input type="button" value="6" onclick="form.screen.value+=6" />
+        <input type="button" value="-" onclick="sub()" />
+        <br />
+        <input type="button" value="7" onclick="form.screen.value+=7" />
+        <input type="button" value="8" onclick="form.screen.value+=8" />
+        <input type="button" value="9" onclick="form.screen.value+=9" />
+        <input type="button" value="/" onclick="divd()" />
+        <br />
+        <input type="button" value="c" onclick="form.screen.value=' '" />
+        <input type="button" value="0" onclick="form.screen.value+=0" />
+        <input
+          type="button"
+          value="="
+          onclick="form.screen.value=eval(form.screen.value)"
+        />
+        <input type="button" value="x" onclick="mul()" />
+      </form>
+    </div>
+    <script>
+      function add() {
+        var n = 0,
+          m = 0;
+        n = form.screen.value;
+        m = n.charAt(m.length - 1);
+        if (m == "+" || m == "-" || m == "/" || m == "*") {
+          form.screen.value = m.subString(0, n.length - 1);
+          form.screen.value += "+";
+        } else {
+          form.screen.value += "+";
+        }
+      }
+      function sub() {
+        let n = 0,
+          m = 0;
+        n = form.screen.value;
+        m = n.charAt(m.length - 1);
+        if (m == "+" || m == "-" || m == "/" || m == "*") {
+          form.screen.value = m.substring(0, n.length - 1);
+          form.screen.value += "-";
+        } else {
+          form.screen.value += "-";
+        }
+      }
+      function divd() {
+        let n = 0,
+          m = 0;
+        n = form.screen.value;
+        m = n.charAt(m.length - 1);
+        if (m == "+" || m == "-" || m == "/" || m == "*") {
+          form.screen.value = m.substring(0, n.length - 1);
+          form.screen.value += "/";
+        } else {
+          form.screen.value += "/";
+        }
+      }
+      function mul() {
+        let n = 0,
+          m = 0;
+        n = form.screen.value;
+        m = n.charAt(m.length - 1);
+        if (m == "+" || m == "-" || m == "/" || m == "*") {
+          form.screen.value = m.substring(0, n.length - 1);
+          form.screen.value += "*";
+        } else {
+          form.screen.value += "*";
+        }
+      }
+    </script>
+  </body>
+</html>
